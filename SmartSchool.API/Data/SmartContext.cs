@@ -6,7 +6,7 @@ namespace SmartSchool.API.Data
 {
     public class SmartContext : DbContext
     {
-        public SmartContext(DbContextOptions options):base(options){}
+        public SmartContext(DbContextOptions options) : base(options) { }
         public DbSet<Aluno> Alunos { get; set; }
         public DbSet<Professor> Professores { get; set; }
         public DbSet<Disciplina> Disciplinas { get; set; }
@@ -15,7 +15,7 @@ namespace SmartSchool.API.Data
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<AlunoDisciplina>()
-                .HasKey(AD => new {AD.AlunoId, AD.DisciplinaId});
+                .HasKey(AD => new { AD.AlunoId, AD.DisciplinaId });
 
             modelBuilder.Entity<Professor>()
                 .HasData(new List<Professor>(){
